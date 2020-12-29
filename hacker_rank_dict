@@ -1,0 +1,23 @@
+students = {} #The studens dictionary
+
+def get_students():
+    std_number = int(input('How many student? ')) # asks for number of students 
+    # a for loop based on student number given above
+    for i in range(std_number):
+        # first split inputs
+        the_input = input('Enter The students name and grades separated b a space ').split(' ')
+        # add to dictionary key:value pairs
+        students[the_input[0]] = [float(i) for i in the_input[1:]]
+        
+
+def query_name():
+    name = input('Enter name to query ')
+    for k in students:
+        if name == k:
+            result = sum(students[k])/len(students[k])
+            return (("%.2f" % result))
+    return 'Name not found'
+
+if __name__ == '__main__':
+    get_students()
+    print(query_name()) 
