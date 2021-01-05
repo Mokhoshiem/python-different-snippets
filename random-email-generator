@@ -1,0 +1,22 @@
+import random 
+
+f_names = ['mai', 'hala', 'assad']
+l_names = ['man', 'foo', 'bar']
+
+def generate_mails(n, f_names, l_names):
+    emails = []
+    domains = ['yahoo', 'gmail', 'hotmail']
+    sufs = ['com', 'org', 'net']
+    i = 0
+    while i < n:
+        random_f_name = random.choice(f_names)
+        random_l_name = random.choice(l_names)
+        random_num = random.randint(0, 9)
+        random_domain = random.choice(domains)
+        random_suf = random.choice(sufs)
+        e_mail = '{0}{1}{2}{2}{2}@{3}.{4}'.format(random_f_name, random_l_name, random_num, random_domain, random_suf)
+        if e_mail not in emails: emails.append(e_mail) 
+        i += 1
+    return emails
+        
+e_mails = generate_mails(1000, f_names, l_names)
